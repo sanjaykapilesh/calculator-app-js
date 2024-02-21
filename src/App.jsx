@@ -34,13 +34,14 @@ function App() {
 
   return (
     <div className="main-wrapper">
-      <form onSubmit={(e) => handleFormSubmit(e)}>
-        <input value={numInput} onChange={(event) => setNumInput(event.target.value)} type="number"/>
-        <button type="submit">Add</button>
+      <form onSubmit={(e) => handleFormSubmit(e)} className="app-form">
+        <input value={numInput} onChange={(event) => setNumInput(event.target.value)} type="number"
+               className="form-input" placeholder="Enter a number"/>
+        <button type="submit" className="form-submit-btn">ADD</button>
       </form>
 
-      <NumberDisplayer number={1} onDeleteClick={() => {
-      }}/>
+      {/*<NumberDisplayer number={1} onDeleteClick={() => {*/}
+      {/*}}/>*/}
       {numbersCollection.map((number, index) =>
         <NumberDisplayer
           key={number}

@@ -32,7 +32,7 @@
 }
 
 .box {
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
 
   display: flex;
@@ -48,6 +48,12 @@
 .app-number-box {
   background-color: $primary-bg-color;
   transition: all 0.2s ease-in;
+
+  &:has(.btn-delete:hover) {
+    background-color: red;
+    transform: scale(1.02);
+    color: white;
+  }
 }
 
 .btn-delete {
@@ -56,15 +62,38 @@
   cursor: pointer;
 
   transition: transform 0.2s ease-in;
+
+  &:hover {
+    transform: scale(1.2);
+
+  }
 }
 
-.app-number-box:has(.btn-delete:hover) {
-  background-color: red;
-  transform: scale(1.02);
+.app-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-input {
+  flex-basis: 60%;
+
+  padding: map-get($spacing, 5);
+  border-radius: 10px;
+
+  border: 1px solid gray;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-submit-btn {
+  flex-basis: 25%;
+  border-radius: 10px;
+  border: 1px solid green;
+  background-color: #3c8a3c;
   color: white;
-}
 
-.btn-delete:hover {
-  transform: scale(1.2);
+  font-size: 18px;
+  font-weight: bold;
 }
-
