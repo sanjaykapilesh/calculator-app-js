@@ -49,7 +49,10 @@ function App() {
         />
       )}
 
-      <p>Sum: {totalSum}</p>
+      <div className="box bg-black text-white">
+        <p>Sum</p>
+        <p>{totalSum}</p>
+      </div>
     </div>
   )
 }

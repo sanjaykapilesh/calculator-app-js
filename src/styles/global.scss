@@ -1,5 +1,10 @@
 @import "reset";
 @import "variables";
+@import "./mixins/generator";
+
+.flex {
+  display: flex;
+}
 
 .main-wrapper {
   display: flex;
@@ -8,9 +13,58 @@
   align-items: center;
 
   height: 100vh;
+
+  // Container emulation
+  max-width: 50%;
+  margin: auto;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-gray {
+  background: $primary-bg-color;
+}
+
+.bg-black {
+  background: $black;
 }
 
 .box {
-  background-color: $primary-bg-color;
+  width: 100%;
+  border-radius: 10px;
+
   display: flex;
+  justify-content: space-between;
+
+  margin-top: map-get($spacing, 4);
+  padding: map-get($spacing, 5);
+
+  font-weight: bold
 }
+
+
+.app-number-box {
+  background-color: $primary-bg-color;
+  transition: all 0.2s ease-in;
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: transform 0.2s ease-in;
+}
+
+.app-number-box:has(.btn-delete:hover) {
+  background-color: red;
+  transform: scale(1.02);
+  color: white;
+}
+
+.btn-delete:hover {
+  transform: scale(1.2);
+}
+
