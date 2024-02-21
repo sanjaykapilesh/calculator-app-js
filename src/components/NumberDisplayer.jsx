@@ -1,6 +1,6 @@
 const NumberDisplayer = ({number, onDeleteClick}) => {
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="box">
       <p>{number}</p>
       <button onClick={onDeleteClick}>x</button>
     </div>

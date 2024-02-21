@@ -1,0 +1,16 @@
+@import "reset";
+@import "variables";
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.box {
+  background-color: $primary-bg-color;
+  display: flex;
+}

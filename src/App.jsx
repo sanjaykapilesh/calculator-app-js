@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import NumberDisplayer from "./components/NumberDisplayer.jsx";
 
 // TODO: Figure the key issue
+// TODO: Convert to form
+// NOTE: Sass seems to be an overkill
 function App() {
 
   const [numbersCollection, setNumbersCollection] = useState([]);
@@ -10,6 +12,11 @@ function App() {
   const handleAddNumber = (number) => {
     setNumbersCollection(prevNumbers => [...prevNumbers, parseInt(number)])
     setNumInput("")
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    handleAddNumber(numInput)
   }
 
   const handleDeleteClick = (index) => {
@@ -26,16 +33,26 @@ function App() {
   }, [numbersCollection])
 
   return (
-    <>
-      <div>
-        <input value={numInput} onChange={(event) => setNumInput(event.target.value)} type="number" />
-        <button onClick={() => handleAddNumber(numInput)} >Add</button>
-        {numbersCollection.map((number, index) => <NumberDisplayer key={number}  number={number} onDeleteClick={ () => handleDeleteClick(index) } />)}
+    <div className="main-wrapper">
+      <form onSubmit={(e) => handleFormSubmit(e)}>
+        <input value={numInput} onChange={(event) => setNumInput(event.target.value)} type="number"/>
+        <button type="submit">Add</button>
+      </form>
 
-        <p>Sum: {totalSum}</p>
-      </div>
-    </>
+      <NumberDisplayer number={1} onDeleteClick={() => {
+      }}/>
+      {numbersCollection.map((number, index) =>
+        <NumberDisplayer
+          key={number}
+          number={number}
+          onDeleteClick={() => handleDeleteClick(index)}
+        />
+      )}
+
+      <p>Sum: {totalSum}</p>
+    </div>
   )
 }
 
 export default App
+
