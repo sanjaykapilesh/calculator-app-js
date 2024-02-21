@@ -1,8 +1,17 @@
+import { useState } from "react";
+import NumberDisplayer from "./components/NumberDisplayer.jsx";
+
 function App() {
+
+  const [numbersCollection, setNumbersCollection] = useState([])
 
   return (
     <>
-      <p>Calculator App</p>
+      <div>
+        <input type="number" />
+        <button>Add</button>
+        {numbersCollection.map(number => <NumberDisplayer key={number}  number={number}/>)}
+      </div>
     </>
   )
 }
