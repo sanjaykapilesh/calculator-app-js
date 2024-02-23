@@ -1,5 +1,12 @@
 import { DeleteIcon } from "../assets/index.js";
 
+/**
+ * This component is used to display the number and delete button
+ * @param number
+ * @param onDeleteClick
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NumberDisplayer = ({number, onDeleteClick}) => {
   return (
     <div className="box app-number-box">
