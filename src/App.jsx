@@ -13,7 +13,7 @@ function App() {
    * @param number
    */
   const handleAddNumber = (number) => {
-    setNumbersCollection((prevNumbers) => [...prevNumbers, parseInt(number)]);
+    setNumbersCollection((prevNumbers) => [...prevNumbers, parseInt(number, 10)]);
     setNumInput('');
   };
 

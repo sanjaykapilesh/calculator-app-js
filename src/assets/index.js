@@ -1,5 +1,3 @@
-import DeleteIcon from './delete.png'
+import DeleteIcon from './delete.png';
 
-export {
-  DeleteIcon
-}
+export { DeleteIcon };
