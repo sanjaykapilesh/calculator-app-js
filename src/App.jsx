@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import NumberDisplayer from './components/NumberDisplayer.jsx';
+import NumberItem from './components/NumberItem.jsx';
 
 function App() {
   // State for all the numbers in the list
@@ -45,6 +45,14 @@ function App() {
     return numbersCollection.reduce((acc, num) => acc + num, 0);
   }, [numbersCollection]);
 
+  // Prevents rendering the list of numbers when the input is changed
+  const renderedNumbersCollection = useMemo(
+    () =>
+      numbersCollection.map((number, index) => (
+        <NumberItem key={number} number={number} onDeleteClick={() => handleDeleteClick(index)} />
+      )),
+    [numbersCollection],
+  );
   return (
     <div className="main-wrapper">
       {/* Input Form */}
@@ -62,9 +70,7 @@ function App() {
       </form>
 
       {/* Render list of Numbers */}
-      {numbersCollection.map((number, index) => (
-        <NumberDisplayer key={number} number={number} onDeleteClick={() => handleDeleteClick(index)} />
-      ))}
+      {renderedNumbersCollection}
 
       <div className="box bg-black text-white">
         <p>Sum</p>

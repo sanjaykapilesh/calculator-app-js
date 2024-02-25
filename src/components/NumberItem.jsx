@@ -7,7 +7,8 @@ import { DeleteIcon } from '../assets/index.js';
  * @returns {JSX.Element}
  * @constructor
  */
-const NumberDisplayer = ({ number, onDeleteClick }) => {
+const NumberItem = ({ number, onDeleteClick }) => {
+  console.log('Rendered');
   return (
     <div className="box app-number-box">
       <p className="mr-10">{number}</p>
@@ -18,4 +19,4 @@ const NumberDisplayer = ({ number, onDeleteClick }) => {
   );
 };
 
-export default NumberDisplayer;
+export default NumberItem;
