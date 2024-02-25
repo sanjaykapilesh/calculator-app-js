@@ -8,7 +8,6 @@ import { DeleteIcon } from '../assets/index.js';
  * @constructor
  */
 const NumberItem = ({ number, onDeleteClick }) => {
-  console.log('Rendered');
   return (
     <div className="box app-number-box">
       <p className="mr-10">{number}</p>
