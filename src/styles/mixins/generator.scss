@@ -1,18 +1,18 @@
-@use "sass:map";
-@import "values";
+@use 'sass:map';
+@import 'values';
 
 $total-count: 10;
 $utility-properties: (
-        "p": padding,
-        "pt": padding-top,
-        "pb": padding-bottom,
-        "pr": padding-right,
-        "pl": padding-left,
-        "m": margin,
-        "mt": margin-top,
-        "mb": margin-bottom,
-        "ml": margin-left,
-        "mr": margin-right
+  'p': padding,
+  'pt': padding-top,
+  'pb': padding-bottom,
+  'pr': padding-right,
+  'pl': padding-left,
+  'm': margin,
+  'mt': margin-top,
+  'mb': margin-bottom,
+  'ml': margin-left,
+  'mr': margin-right,
 );
 
 // A base generator that generates classes from spacing 1 - 10
@@ -37,9 +37,9 @@ $utility-properties: (
   @each $class-name, $value in $utility-data {
     // Create classes dynamically based on property and class name
     .#{$property-name}-#{$class-name} {
-      #{$property-type}: #{$value}
+      #{$property-type}: #{$value};
     }
   }
 }
 
-@include generate-spacing-utility-classes
+@include generate-spacing-utility-classes;
