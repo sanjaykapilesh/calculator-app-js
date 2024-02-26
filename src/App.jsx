@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
-import NumberItem from './components/NumberItem.jsx';
+import { useMemo, useState } from "react";
+import NumberItem from "./components/NumberItem.jsx";
 
 function App() {
   // State for all the numbers in the list
   const [numbersCollection, setNumbersCollection] = useState([]);
   // Input value
-  const [numInput, setNumInput] = useState('');
+  const [numInput, setNumInput] = useState("");
 
   /**
    * This method is used to update `numbersCollection` and `numInput`
@@ -13,8 +13,11 @@ function App() {
    * @param number
    */
   const handleAddNumber = (number) => {
-    setNumbersCollection((prevNumbers) => [...prevNumbers, parseInt(number, 10)]);
-    setNumInput('');
+    setNumbersCollection((prevNumbers) => [
+      ...prevNumbers,
+      parseInt(number, 10),
+    ]);
+    setNumInput("");
   };
 
   /**
@@ -49,7 +52,12 @@ function App() {
   const renderedNumbersCollection = useMemo(
     () =>
       numbersCollection.map((number, index) => (
-        <NumberItem key={number} number={number} onDeleteClick={() => handleDeleteClick(index)} />
+        // Note: The identical key issue can be fixed by generating uuid when the user adds a number, if needed.
+        <NumberItem
+          key={number}
+          number={number}
+          onDeleteClick={() => handleDeleteClick(index)}
+        />
       )),
     [numbersCollection],
   );
